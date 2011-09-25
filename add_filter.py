@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from voipms import Voipms
 
 def load_accounts(credentials_file):
