@@ -32,6 +32,9 @@ if __name__ == "__main__":
     new_account_user = sys.argv[3]
     new_account_pass = sys.argv[4]
 
+    # I use a single IVR, for intercepting potential telemarketers. The ID for it in the 
+    # old account will not match the one in the new account, so we have to pass in the
+    # ID of the new account's IVR
     ivr = sys.argv[5]
 
     original_voip = build_and_connect(original_account_user, original_account_pass)
