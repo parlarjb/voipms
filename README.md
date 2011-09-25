@@ -23,5 +23,8 @@ The IVR ID is specific to my uses. I have a single IVR defined for voip.ms, a "P
 
 I have essentially the same IVR defined in both of my voip.ms accounts, but voip.ms (understandably) assigns unique IDs to them. So the fifth argument is the ID that voip.ms assigned to the IVR I created in my new account. Whenever this script encounters an IVR-based rule from the old account, it creates a corresponding rule in the new account, but with the correct IVR ID.
 
+### add_filter.py ###
+This is a script for adding the same caller ID filter to multiple voip.ms accounts. When I receive a telemarketer call to one of my lines, I want to make sure that that telemarketer can never again call *any* of my accounts. 
+
 ## Usage Notes ##
-To use this, make sure you've turned on API support in your voip.ms accounts. Then it should just be a matter of running `transfer_filters.py` with the appropriate arguments.
+To use this, make sure you've turned on API support in your voip.ms accounts. Then it should just be a matter of running whichever script you need.

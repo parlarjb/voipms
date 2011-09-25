@@ -5,9 +5,10 @@ import json
 
 class Voipms(object):
     api_url = "/api/v1/rest.php?%s"
-    def __init__(self, username, password):
+    def __init__(self, username, password, ivr=''):
         self.username = username
         self.password = password
+        self.ivr = ivr
         self.conn = None
 
     def connect(self):
@@ -19,7 +20,7 @@ class Voipms(object):
         '''
         return self.method_call('getCallerIDFiltering', {'filtering':specific_id})
 
-    def create_callerid_filter(self, callerid, routing_action, did, note=""):
+    def create_callerid_filter(self, callerid, routing_action, did="all", note=""):
         '''
         callerid: Phone number for the filter. Has to be a string
         routing_action: sys:hangup, sys:busy, etc.
