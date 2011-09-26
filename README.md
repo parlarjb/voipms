@@ -26,5 +26,21 @@ I have essentially the same IVR defined in both of my voip.ms accounts, but voip
 ### add_filter.py ###
 This is a script for adding the same caller ID filter to multiple voip.ms accounts. When I receive a telemarketer call to one of my lines, I want to make sure that that telemarketer can never again call *any* of my accounts. 
 
+### run_through_km.applescript ###
+
+This is an AppleScript that can be used as a rule for Mail.app. When I send an email to a special address (defined in Mail.app) from one of the addresses listed in "allowedSender", with a subject line:
+    
+    h 5555555555
+
+or
+
+    i 5555555555
+
+(where `h` and `i` stand for "hangup" and "IVR")
+
+then a new caller ID rule will be created. Whatever I put in the subject of the email will be added as the note of the rule.
+
+Please note that this AppleScript calls out to Keyboard Maestro. So you need Keyboard Maestro installed to actually make this work. I'm sure there's a way to do it without, but I haven't looked into it. The role Keyboard Maestro plays here is to take the variables from the AppleScript and feed them to `add_filter.py`. There's probably a way to directly call shell scripts from AppleScript, and if so, I can remove Keyboard Maestro from the equation.
+
 ## Usage Notes ##
 To use this, make sure you've turned on API support in your voip.ms accounts. Then it should just be a matter of running whichever script you need.
